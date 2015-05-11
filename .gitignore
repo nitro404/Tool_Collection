@@ -6,6 +6,7 @@
 **/Logs/*
 **/Misc/*
 **/Old/*
+.settings
 stderr.txt
 stdout.txt
 *.ncb
