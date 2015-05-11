@@ -1,0 +1,34 @@
+==============
+ Batch Backup
+==============
+
+Author: Kevin Scroggins
+E-Mail: nitro404@gmail.com
+Website: http://www.nitro404.com
+
+=================
+ Version History
+=================
+
+Version 1.1
++ Changed the destination path not to use mapped network drives (drives
+  disconnect on logoff - shares reccomended in place of mapped network drives
+  (ie. \\client000\share)
++ Fixed a potential problem where if the remote share was unavailable, the
+  program would set itself as having backed up the files, when it had actually
+  just ran the script and failed all of the copies, so it would simply skip
+  to the end and update the file
++ Added a log file to keep track of when the program executes and whether it
+  completed successfully or failed
+
+Version 1.0
++ Added incremental backup feature based on the date the program was last
+  executed (uses file i/o in a file of the same name with the extension ".ini"
++ Automatically runs a full backup if the program has not been executed before
++ Changed copy command to use xcopy to take into account subdirectories,
+  incremental backups, etc.
++ Fixed path on xcopy to NOT have a "\" at the end - this causes the copy to
+  fail due to an invalid path
++ Fixed a fault that would allow for the script to set it's status as having
+  completed the backup if it was prematurely terminated (added ini file update
+  code to the end of the file after the copy is completed)
